@@ -1,0 +1,32 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:solid/typescript"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "project": "./tsconfig.json"
+    },
+    "rules": {
+      "indent": ["error", 2],
+      "no-trailing-spaces": "error",
+      "consistent-return": "error",
+      "curly": "error",
+      "eqeqeq": ["error", "always"],
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+      "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+      "@typescript-eslint/no-explicit-any": "error",
+      "solid/reactivity": "error",
+      "solid/no-destructure": "warn",
+      "solid/jsx-no-undef": "error",
+      "solid/no-unknown-namespaces": "error",
+      "solid/no-multiple-top-level-hooks": "error",
+      "solid/no-direct-mutation-state": "error",
+      "solid/prefer-show": "warn",
+      "solid/prefer-classlist": "warn"
+    }
+  }
+  

@@ -1,0 +1,23 @@
+{
+    "features": [
+      {
+        "icon": "images/icon_56icon_55.png",
+        "alt":"icon dot",
+        "title": "We get to know you",
+        "description": "We want to know you! We need to know your needs, goals, and tastes in order to develop a work plan and deliver you with the best services..."
+      },
+      {
+        "icon": "images/icon_52icon_51.png",
+        "alt":"play icon",
+        "title": "We help you materialize your dreams!",
+        "description": "If we match, we start working together!"
+      },
+      {
+        "icon": "images/icon_54icon_53.png",
+        "alt":"pause icon",
+        "title": "Pause at any moment",
+        "description": "Do you like how we work? Let's keep working! You are not convinced? No worries, you can look for developers somewhere else, and we'll wish you the best."
+      }
+    ]
+  }
+  

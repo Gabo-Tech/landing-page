@@ -1,0 +1,4 @@
+.half-height-container {
+  height: 590px; /* Set this to half of your image's full height or to the desired height */
+  overflow: hidden;
+}

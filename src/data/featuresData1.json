@@ -1,0 +1,23 @@
+{
+    "features": [
+        {
+            "icon": "images/icon_26icon_25.png",
+            "alt":"watch icon",
+            "title": "Always committed to your budget and deadlines.",
+            "description": "After getting to know your needs we'll estimate how much and how long it's going to take for us to make it real..."
+          },
+          {
+            "icon": "images/icon_4icon_03.png",
+            "alt":"fether icon",
+            "title": "We keep in touch.",
+            "description": "You can reach us at any moment, and we'll solve your doubts ASAP. We will also be asking for your feedback..."
+          },
+          {
+            "icon": "images/icon_9icon_08.png",
+            "alt":"paper airplane icon",
+            "title": "Send it and get paid.",
+            "description": "Finish your product and start selling and getting customers!"
+          }
+    ]
+  }
+  

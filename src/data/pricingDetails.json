@@ -1,0 +1,109 @@
+[
+    {
+        "title": "Landing Page Development - Basic (No-Code Tools)",
+        "price": "$299.95",
+        "features": [
+            "Includes a single-page layout using no-code tools",
+            "Responsive design adapted for all devices",
+            "Basic SEO setup",
+            "Turnaround time: 1 week"
+        ],
+        "link": "contact"
+    },
+    {
+        "title": "Landing Page Development - Premium (Custom Code)",
+        "price": "$499.95",
+        "features": [
+            "Includes a single-page layout with prereferred framework",
+            "Responsive design adapted for all devices",
+            "Basic SEO setup",
+            "Turnaround time: 1 week"
+        ],
+        "link": "contact"
+    },
+    {
+        "title": "Content Management System (CMS) - Standard (No-Code Tools)",
+        "price": "$499.95",
+        "features": [
+            "Basic CMS functionalities using platforms like WordPress or Webflow",
+            "Includes up to 5 pages",
+            "Basic plugins and integrations",
+            "Turnaround time: 2 weeks"
+        ],
+        "link": "contact"
+    },
+    {
+        "title": "Content Management System (CMS) - Premium (Custom Code)",
+        "price": "$799.95",
+        "features": [
+            "Custom-coded CMS features tailored to specific needs",
+            "Advanced functionalities and integrations",
+            "Custom design elements",
+            "Turnaround time: 3-4 weeks"
+        ],
+        "link": "contact"
+    },
+    {
+        "title": "E-commerce Development - Basic (No-Code Tools)",
+        "price": "$299.95",
+        "features": [
+            "Setup using platforms like Shopify or BigCommerce for example",
+            "Includes basic e-commerce functionalities like product listing, cart, and checkout",
+            "Turnaround time: 1-2 weeks"
+        ],
+        "link": "contact"
+    },
+    {
+        "title": "E-commerce Development - Advanced (Custom Code)",
+        "price": "$599.95",
+        "features": [
+            "Custom-built e-commerce features",
+            "Integration with custom payment gateways",
+            "Advanced product filtering and search capabilities",
+            "Turnaround time: 3-4 weeks"
+        ],
+        "link": "contact"
+    },
+    {
+        "title": "Mobile App or Desktop Software",
+        "price": "Starting at $999.95",
+        "features": [
+            "Native or hybrid app development for iOS and/or Android",
+            "Basic features like user registration and profile management",
+            "Turnaround time varies based on complexity (minimum 1 month)"
+        ],
+        "link": "contact"
+    },
+    {
+        "title": "Platform as a Service (PaaS)",
+        "price": "Starting at $4,999.95",
+        "features": [
+            "Development of cloud-based platforms",
+            "Scalable infrastructure setup",
+            "Includes initial setup, deployment, and basic training",
+            "Ongoing support available at additional costs",
+            "Turnaround time: Minimum 2nths"
+        ],
+        "link": "contact"
+    },
+    {
+        "title": "Software as a Service (SaaS)",
+        "price": "Starting at $4,999.95",
+        "features": [
+            "Development of a SaaS application tailored to client specifications",
+            "Multi-tenant architecture",
+            "Basic features include user management, data security, and initial API integrations",
+            "Turnaround time: Minimum 2nths"
+        ],
+        "link": "contact"
+    },
+    {
+        "title": "Hourly Rate",
+        "price": "$40/hr",
+        "features": [
+            "Best for small tasks or when the client needs work on an ad-hoc basis",
+            "Ideal for troubleshooting, minor updates, or consultations"
+        ],
+        "link": "contact"
+    }
+]

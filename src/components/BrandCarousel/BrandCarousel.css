@@ -1,0 +1,35 @@
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.flex-container {
+  display: flex;
+  white-space: nowrap;
+  width: calc(200%);
+}
+
+.logo-item {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.logo-item img {
+  max-width: none;
+  height: 100px;
+  width: auto;
+  vertical-align: middle;
+  filter: grayscale() invert();
+}
+
+.logo-item img:hover {
+  filter: none;
+}
