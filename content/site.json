@@ -1,0 +1,25 @@
+{
+  "brandName": "GABO Solutions",
+  "siteUrl": "https://gabo.solutions",
+  "navLinks": [
+    { "label": "Home", "href": "/" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "footer": {
+    "legalTitle": "LEGAL",
+    "companyTitle": "COMPANY",
+    "helpTitle": "GET HELP",
+    "legalLinks": [
+      { "label": "Privacy Policy", "href": "/privacy" },
+      { "label": "Terms of Service", "href": "/terms" }
+    ],
+    "companyLinks": [
+      { "label": "Home", "href": "/" },
+      { "label": "About Us", "href": "/about" },
+      { "label": "Contact Us", "href": "/contact" }
+    ],
+    "helpLinks": [
+      { "label": "Support", "href": "/contact" }
+    ]
+  }
+}

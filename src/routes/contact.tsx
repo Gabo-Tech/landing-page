@@ -1,30 +1,39 @@
 // src/pages/Contact.tsx
-import { For } from 'solid-js';
+import { For, createResource } from 'solid-js';
 import ContactIcon from '../components/ContactComponent/ContactIcon';
-import contactDetails from '../data/contactDetails.json';
+import contactFallback from '../../content/contact.json';
+
+async function fetchContactContent() {
+  try {
+    const response = await fetch('/api/content/contact');
+    if (!response.ok) return contactFallback;
+    const payload = await response.json();
+    return payload?.data ?? contactFallback;
+  } catch {
+    return contactFallback;
+  }
+}
 
 export default function Contact() {
+  const [contactData] = createResource(fetchContactContent);
+
   return (
-    <main class="text-center mx-auto bg-stone-800 text-white p-4 min-h-screen">
-      <h1 class="text-6xl text-black-700 uppercase my-16">
-        Getting in touch is easy
-      </h1>
-      <h2 class="mb-40 text-4xl text-black-700 uppercase my-16">
-        We'll get back to you ASAP. No worries.
-      </h2>
-      <div class="container my-28 mx-auto md:px-6">
-        <section>
-          <div class="container px-6 md:px-12 text-white">
-            <div class="block rounded-lg bg-[hsla(0,0%,100%,0.7)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px]">
-              <div class="grid gap-x-6 md:grid-cols-2 lg:grid-cols-4">
-                <For each={contactDetails}>
-                  {contactMethod => <ContactIcon {...contactMethod} />}
-                </For>
-              </div>
-            </div>
+    <main class="w-full bg-stone-800 text-white px-4 py-10 sm:px-6 md:px-10 lg:px-16">
+      <section class="max-w-6xl mx-auto text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl uppercase font-bold tracking-wide mt-4 mb-6 sm:mb-8">
+          {contactData()?.heading ?? contactFallback.heading}
+        </h1>
+        <h2 class="text-lg sm:text-2xl md:text-3xl uppercase mb-10 sm:mb-14">
+          {contactData()?.subheading ?? contactFallback.subheading}
+        </h2>
+        <div class="mx-auto max-w-5xl rounded-lg bg-[hsla(0,0%,5%,0.72)] px-4 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-[20px]">
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            <For each={contactData()?.items ?? contactFallback.items}>
+              {contactMethod => <ContactIcon {...contactMethod} />}
+            </For>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   );
 }

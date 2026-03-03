@@ -1,26 +1,18 @@
-import { onCleanup, onMount } from 'solid-js';
+type CalBookingButtonProps = {
+  href: string;
+  text?: string;
+};
 
-function CalBookingButton() {
-  onMount(() => {
-    const script = document.createElement('script');
-    script.src = '/cal-setup.js';
-    document.body.appendChild(script);
-    onCleanup(() => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    });
-  });
-
+function CalBookingButton(props: CalBookingButtonProps) {
   return (
-    <button
-      data-cal-link="gabo-solutions/15min"
-      data-cal-namespace=""
-      data-cal-config='{"layout":"month_view"}'
-      style={{ 'font-size': '16px', cursor: 'pointer' }}
+    <a
+      href={props.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block text-white hover:underline font-medium"
     >
-      BOOK A CALL NOW!
-    </button>
+      {props.text ?? 'BOOK A CALL NOW!'}
+    </a>
   );
 }
 

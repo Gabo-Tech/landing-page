@@ -27,6 +27,8 @@ const FeatureSection = (props: FeatureSectionProps) => {
             <img
               src={props.imageUrl}
               alt={props.alt}
+              loading="lazy"
+              decoding="async"
               class="max-w-full h-auto"
             />
           </div>

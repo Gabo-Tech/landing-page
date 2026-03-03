@@ -11,6 +11,8 @@ const FeatureItem = (props: FeatureItemProps) => {
       <img
         src={props.icon}
         alt={props.alt}
+        loading="lazy"
+        decoding="async"
         class="h-14 w-14 mr-4 border-2 p-2"
       />
       <div class="m-auto">

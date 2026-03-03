@@ -1,0 +1,139 @@
+{
+  "privacy": {
+    "title": "Privacy Policy for GABO LLC",
+    "effectiveDate": "Effective Date: April 27, 2024",
+    "sections": [
+      {
+        "heading": "1. Introduction",
+        "paragraphs": [
+          "GABO LLC respects your privacy and is committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you."
+        ]
+      },
+      {
+        "heading": "2. Important Information and Who We Are",
+        "paragraphs": [
+          "Purpose of This Privacy Policy",
+          "This privacy policy aims to give you information on how GABO LLC collects and processes your personal data through your use of this website, including any data you may provide through this site when you sign up for our service, purchase a product or service, or interact with us.",
+          "Controller",
+          "GABO LLC is the controller and responsible for your personal data (collectively referred to as \"GABO LLC,\" \"we,\" \"us,\" or \"our\" in this privacy policy).",
+          "Contact Details",
+          "For any questions or concerns regarding this policy or our privacy practices, please contact us."
+        ]
+      },
+      {
+        "heading": "3. The Data We Collect About You",
+        "paragraphs": [
+          "We collect, use, store, and transfer different kinds of personal data about you which we have grouped together as follows:",
+          "We use this data exclusively to provide and improve our software development services and SaaS products and to handle our contractual and payment obligations."
+        ],
+        "list": [
+          "Contact Data includes email address and telephone numbers.",
+          "Financial Data includes bank account and payment card details.",
+          "Project Data includes information about the projects we work on with you, which may contain confidential information."
+        ]
+      },
+      {
+        "heading": "4. How We Use Your Personal Data",
+        "paragraphs": [
+          "We will only use your personal data when the law allows us to. Most commonly, we use your personal data to perform the contract we are about to enter into or have entered into with you, and to comply with our legal obligations."
+        ]
+      },
+      {
+        "heading": "5. Data Security",
+        "paragraphs": [
+          "To prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way, altered or disclosed, we have implemented appropriate security measures to safeguard and secure the data we collect. All personal data is encrypted."
+        ]
+      },
+      {
+        "heading": "6. Your Legal Rights",
+        "paragraphs": [
+          "You have the right to:",
+          "If you wish to exercise any of the rights set out above, please contact us at the details provided."
+        ],
+        "list": [
+          "Request access to your personal data.",
+          "Request correction of the personal data that we hold about you.",
+          "Request erasure of your personal data.",
+          "Object to processing of your personal data.",
+          "Request restriction of processing your personal data.",
+          "Request transfer of your personal data.",
+          "Right to withdraw consent."
+        ]
+      },
+      {
+        "heading": "7. Changes to the Privacy Policy",
+        "paragraphs": [
+          "We keep our privacy policy under regular review. This version was last updated on April 27, 2024. Historical versions can be obtained by contacting us."
+        ]
+      }
+    ],
+    "contactEmail": "sendmessage@gabo.email",
+    "contactAddress": "120 Madeira Drive Northeast, #219, Albuquerque, NM 87108, USA",
+    "ctaLabel": "Contact Us",
+    "ctaHref": "/contact"
+  },
+  "terms": {
+    "title": "Terms of Service Agreement for GABO LLC",
+    "effectiveDate": "Effective Date: April 27, 2024",
+    "sections": [
+      {
+        "heading": "1. Acceptance of Terms",
+        "paragraphs": [
+          "By accessing and using the services provided by GABO LLC (\"Company\", \"we\", \"us\", or \"our\"), located at 120 Madeira Drive Northeast, #219, Albuquerque, NM 87108, USA, you (the user) agree to be bound by these Terms of Service (\"Terms\"). If you do not agree to all of these Terms, do not use the services."
+        ]
+      },
+      {
+        "heading": "2. Services Description",
+        "paragraphs": [
+          "GABO LLC provides software development services, SaaS products, and more to users, which are subject to these Terms."
+        ]
+      },
+      {
+        "heading": "3. User Obligations",
+        "paragraphs": [
+          "You agree to use the services only for lawful purposes and in a manner that complies with all applicable local, state, national, and international laws and regulations."
+        ]
+      },
+      {
+        "heading": "5. Payments",
+        "paragraphs": [
+          "All fees are non-refundable. Payment for services must be made in advance. Failure to pay may result in the termination of services."
+        ]
+      },
+      {
+        "heading": "6. Release of Liability",
+        "paragraphs": [
+          "You agree to release GABO LLC, its officers, employees, and agents from any claims, liabilities, damages, and expenses arising from your use of the services, including any liabilities arising from user-generated content."
+        ]
+      },
+      {
+        "heading": "7. Arbitration",
+        "paragraphs": [
+          "Any disputes arising under these Terms will be resolved exclusively through final and binding arbitration under the rules of the American Arbitration Association, rather than in court."
+        ]
+      },
+      {
+        "heading": "8. Third-Party Data Processors",
+        "paragraphs": [
+          "We use third-party service providers to process your data more effectively. These providers are subject to confidentiality agreements and legal compliance requirements for data protection."
+        ]
+      },
+      {
+        "heading": "9. DMCA Compliance",
+        "paragraphs": [
+          "GABO LLC respects the intellectual property rights of others. If you believe that your copyright has been infringed, please contact us at sendmessage@gabo.email."
+        ]
+      },
+      {
+        "heading": "10. Privacy Policy",
+        "paragraphs": [
+          "Refer to our Privacy Policy for information on how we collect, use, and protect your personal data. Our Privacy Policy is an integral part of these Terms."
+        ]
+      }
+    ],
+    "privacyLinkLabel": "Privacy Policy",
+    "privacyLinkHref": "/privacy",
+    "contactEmail": "sendmessage@gabo.email",
+    "contactAddress": "120 Madeira Drive Northeast, #219, Albuquerque, NM 87108, USA"
+  }
+}

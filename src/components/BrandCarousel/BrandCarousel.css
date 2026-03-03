@@ -1,24 +1,27 @@
 @keyframes marquee {
   0% {
-    transform: translateX(0%);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
-.animate-marquee {
-  animation: marquee 20s linear infinite;
+.marquee-window {
+  overflow: hidden;
+  position: relative;
 }
 
-.flex-container {
+.marquee-track {
   display: flex;
   white-space: nowrap;
-  width: calc(200%);
+  width: max-content;
+  animation: marquee 20s linear infinite;
+  will-change: transform;
 }
 
 .logo-item {
-  display: inline-block;
+  flex: 0 0 auto;
   padding: 0 20px;
 }
 
@@ -32,4 +35,11 @@
 
 .logo-item img:hover {
   filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: none;
+  }
 }

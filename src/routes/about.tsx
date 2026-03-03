@@ -1,48 +1,49 @@
 import { A } from '@solidjs/router';
+import { For, createResource } from 'solid-js';
+import aboutFallback from '../../content/about.json';
+
+async function fetchAboutContent() {
+  try {
+    const response = await fetch('/api/content/about');
+    if (!response.ok) return aboutFallback;
+    const payload = await response.json();
+    return payload?.data ?? aboutFallback;
+  } catch {
+    return aboutFallback;
+  }
+}
 
 export default function about() {
+  const [aboutData] = createResource(fetchAboutContent);
+  const sections = () => aboutData()?.sections ?? aboutFallback.sections;
+
   return (
-    <main class="container mx-auto p-48 bg-stone-800 text-white min-h-full">
-      <section class="text-center">
-        <h1 class="text-4xl font-bold mb-6">About Us</h1>
-        <p class="text-lg">
-          GABO LLC is a software development company that specializes in
-          building modern, scalable web applications. Our team consists of
-          passionate developers, designers, and product managers dedicated to
-          delivering high-quality software solutions that meet the needs of our
-          clients.
-        </p>
-      </section>
-      <section class="mt-10">
-        <h2 class="text-3xl font-semibold text-center mb-4">Our Mission</h2>
-        <p class="text-lg">
-          Our mission is to empower businesses through technology. We strive to
-          create products that enhance productivity, improve customer
-          experience, and drive growth.
-        </p>
-      </section>
-      <section class="mt-10">
-        <h2 class="text-3xl font-semibold text-center mb-4">Our Team</h2>
-        <p class="text-lg">
-          We believe in the power of a diverse team to bring innovative ideas to
-          the table. Our experts come from a variety of backgrounds, bringing a
-          unique perspective to every project we undertake.
-        </p>
-      </section>
-      <section class="mt-10">
-        <h2 class="text-3xl font-semibold text-center mb-4">Get in Touch</h2>
-        <p class="text-lg">
-          Interested in learning more about our services or starting a project
-          with us? Contact us at{' '}
-          <a
-            href="mailto:sendmessage@gabo.email"
-            class="text-blue-600 hover:underline"
-          >
-            sendmessage@gabo.email
-          </a>
-          .
-        </p>
-      </section>
+    <main class="w-full bg-stone-800 text-white px-5 py-12 sm:px-8 md:px-12 lg:px-20 lg:py-16">
+      <div class="max-w-3xl mx-auto space-y-10 sm:space-y-12">
+        <For each={sections()}>
+          {(section, index) => (
+            <section class={index() === 0 ? 'text-center' : ''}>
+              <h2
+                class={
+                  index() === 0
+                    ? 'text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-center'
+                    : 'text-2xl sm:text-3xl font-semibold text-center mb-3 sm:mb-4'
+                }
+              >
+                {section.title}
+              </h2>
+              <p class="text-base sm:text-lg leading-relaxed text-center">
+                {section.body}{' '}
+                {section.email && (
+                  <a href={`mailto:${section.email}`} class="text-blue-600 hover:underline">
+                    {section.email}
+                  </a>
+                )}
+              </p>
+            </section>
+          )}
+        </For>
+      </div>
     </main>
   );
 }

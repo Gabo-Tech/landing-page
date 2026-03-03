@@ -1,0 +1,82 @@
+{
+  "hero": {
+    "kicker": "⏰ It's time to",
+    "title": "Launch Your Business with Premier Software Development 🚀",
+    "description": "We are going to help you make it.",
+    "ctaLabel": "GET STARTED NOW!",
+    "ctaHref": "/contact",
+    "imageSrc": "images/macmock.png",
+    "imageAlt": "Mac example"
+  },
+  "learnMore": {
+    "title": "Do you have a website?",
+    "description": "A Mobile App? E-commerce? Personal Portfolio or Business Land Page with CMS? A SaaS? Or maybe a PaaS? Or would you like to have one, but you don’t have the budget to get a team of developers bringing to life your project?\nWe can take care of all your software development needs. We'll help you start building your business!",
+    "ctaLabel": "Get started now ❯",
+    "ctaHref": "/contact",
+    "imageSrc": "images/Screenshot-from-2022-11-21-19-47-23.png",
+    "imageAlt": "Mock Up Responsiveness"
+  },
+  "featureSections": [
+    {
+      "bgColor": "stone-800",
+      "imageUrl": "images/Screenshot-from-2022-11-21-20-08-06.png",
+      "alt": "iPad App Mock",
+      "imagePosition": "left",
+      "title": "How we can help",
+      "paragraph": "Here in GABO we can help you design not only your software but also your business, and give you advise about marketing or entrepreneurship in general. This is how we work.",
+      "features": [
+        {
+          "icon": "images/icon_56icon_55.png",
+          "alt": "icon dot",
+          "title": "We get to know you",
+          "description": "We want to know you! We need to know your needs, goals, and tastes in order to develop a work plan and deliver you with the best services..."
+        },
+        {
+          "icon": "images/icon_52icon_51.png",
+          "alt": "play icon",
+          "title": "We help you materialize your dreams!",
+          "description": "If we match, we start working together!"
+        },
+        {
+          "icon": "images/icon_54icon_53.png",
+          "alt": "pause icon",
+          "title": "Pause at any moment",
+          "description": "Do you like how we work? Let's keep working! You are not convinced? No worries, you can look for developers somewhere else, and we'll wish you the best."
+        }
+      ]
+    },
+    {
+      "bgColor": "stone-700",
+      "imageUrl": "images/mobile-black.png",
+      "alt": "Smartphone App Mock",
+      "imagePosition": "right",
+      "title": "We make a difference",
+      "paragraph": "",
+      "features": [
+        {
+          "icon": "images/icon_26icon_25.png",
+          "alt": "watch icon",
+          "title": "Always committed to your budget and deadlines.",
+          "description": "After getting to know your needs we'll estimate how much and how long it's going to take for us to make it real..."
+        },
+        {
+          "icon": "images/icon_4icon_03.png",
+          "alt": "fether icon",
+          "title": "We keep in touch.",
+          "description": "You can reach us at any moment, and we'll solve your doubts ASAP. We will also be asking for your feedback..."
+        },
+        {
+          "icon": "images/icon_9icon_08.png",
+          "alt": "paper airplane icon",
+          "title": "Send it and get paid.",
+          "description": "Finish your product and start selling and getting customers!"
+        }
+      ]
+    }
+  ],
+  "pricingSection": {
+    "eyebrow": "Service Pricing Breakdown",
+    "title": "Our Pricing Plan",
+    "description": "Pick what suits best for you, if you don't find it contact us anyways, we might arrange something! 😉"
+  }
+}

@@ -39,7 +39,14 @@ export default function ContactIcon(props: {
       {isCalBookingLink ? (
         <div>
           {icon}
-          <CalBookingButton />
+          <CalBookingButton
+            href={props.href}
+            text={
+              typeof props.text === 'string' && props.text.length > 0
+                ? props.text
+                : 'BOOK A CALL NOW!'
+            }
+          />
         </div>
       ) : (
         <a href={props.href} class="text-white hover:underline">
