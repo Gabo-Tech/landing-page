@@ -1,5 +1,3 @@
-import solid from 'solid-start/vite'
-import vercel from 'solid-start-vercel'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -12,9 +10,5 @@ export default defineConfig({
       }),
       enforce: 'pre',
     },
-    solid({
-      extensions: ['.mdx', '.md'],
-      adapter: vercel(),
-    }),
   ],
 })
