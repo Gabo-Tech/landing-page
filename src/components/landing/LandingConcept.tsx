@@ -84,6 +84,10 @@ const stackItems = [
   'SolidStart',
   'React',
   'Angular',
+  'Svelte',
+  'Vue',
+  'Astro',
+  'Alpine.js',
   'Node.js',
   'Express',
   'Tailwind CSS',
@@ -204,7 +208,7 @@ export default function LandingConcept(): JSX.Element {
           <div class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             <article class="lp-card">
               <p class="text-base leading-relaxed">
-                "Gabriel is one of the very few people I strongly recommend in tech. His work quality is excellent,
+                "GABO is one of the very few people I strongly recommend in tech. His work quality is excellent,
                 his execution speed is impressive, and he consistently overdelivers."
               </p>
               <p class="mt-4 text-sm font-semibold">Arturo Rodes</p>
@@ -222,7 +226,7 @@ export default function LandingConcept(): JSX.Element {
             </article>
             <article class="lp-card">
               <p class="text-base leading-relaxed">
-                "Working with Gabriel was a pleasure. He is dedicated, proactive, and always focused on improving
+                "Working with GABO was a pleasure. He is dedicated, proactive, and always focused on improving
                 outcomes with a long-term mindset."
               </p>
               <p class="mt-4 text-sm font-semibold">Ciro Vivacqua</p>

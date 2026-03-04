@@ -25,5 +25,14 @@
       "strokeWidth":0.1
     },
     "text": "Instagram"
+  },
+  {
+    "href": "https://x.com/gabo_solutions",
+    "icon": {
+      "viewBox": "0 0 24 24",
+      "path": "M18.244 2H21l-6.92 7.906L22.216 22h-6.37l-4.99-6.53L4.94 22H2.18l7.4-8.46L1.78 2h6.53l4.51 5.95L18.244 2zm-.97 18.34h1.53L7.48 3.58H5.84L17.274 20.34z",
+      "strokeWidth":0.1
+    },
+    "text": "X"
   }
 ]

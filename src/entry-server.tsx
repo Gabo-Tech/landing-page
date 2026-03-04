@@ -146,6 +146,7 @@ export default createHandler(() => (
         sameAs: [
           'https://www.linkedin.com/company/gabo-tech',
           'https://www.instagram.com/gabo.solutions/',
+          'https://x.com/gabo_solutions',
         ],
       });
       const serviceStructuredData = JSON.stringify({

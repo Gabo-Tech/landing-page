@@ -17,7 +17,7 @@ async function fetchContactContent() {
 
 export default function Contact(): JSX.Element {
   const [contactData] = createResource(fetchContactContent);
-  const orderedItems = () => {
+  const contactItems = () => {
     const items = contactData()?.items ?? contactFallback.items;
     return [...items].sort((a, b) => {
       const aIsEmail = a.href.startsWith('mailto:');
@@ -25,6 +25,8 @@ export default function Contact(): JSX.Element {
       return Number(bIsEmail) - Number(aIsEmail);
     });
   };
+  const primaryItem = () => contactItems()[0];
+  const secondaryItems = () => contactItems().slice(1);
 
   return (
     <main class="w-full px-4 py-12 lp-ambient">
@@ -53,20 +55,21 @@ export default function Contact(): JSX.Element {
           </div>
         </div>
         <div class="mx-auto max-w-5xl rounded-md border border-border bg-card px-4 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12">
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-            <For each={orderedItems()}>
-              {(contactMethod, index) => (
-                <div
-                  class={`rounded-md border bg-bg p-4 ${
-                    index() === 0
-                      ? 'border-fg/40 sm:col-span-2 lg:col-span-2'
-                      : 'border-border'
-                  }`}
-                >
-                  <ContactIcon {...contactMethod} />
-                </div>
-              )}
-            </For>
+          <div class="space-y-4">
+            {primaryItem() && (
+              <div class="rounded-md border border-fg/40 bg-bg p-4">
+                <ContactIcon {...primaryItem()!} />
+              </div>
+            )}
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+              <For each={secondaryItems()}>
+                {(contactMethod) => (
+                  <div class="rounded-md border border-border bg-bg p-4">
+                    <ContactIcon {...contactMethod} />
+                  </div>
+                )}
+              </For>
+            </div>
           </div>
         </div>
       </section>
