@@ -4,41 +4,48 @@ import { A } from '@solidjs/router';
 import CustomCursor from './CustomCursor';
 import MouseAmbient from './MouseAmbient';
 import { trackEvent } from '~/lib/analytics';
+import LocalizedPrice from '~/components/pricing/LocalizedPrice';
 
 const serviceItems = [
   {
     title: 'Conversion-Focused Websites',
     description: 'Company sites, portfolios, and landing pages built to convert visitors into qualified leads.',
-    price: 'Starting at CHF 3,000',
+    priceFrom: 3000,
+    pricePrefix: 'Starting at',
   },
   {
     title: 'Ecommerce Development',
     description: 'Storefronts optimized for product discovery, speed, and checkout completion.',
-    price: 'Starting at CHF 5,000',
+    priceFrom: 5000,
+    pricePrefix: 'Starting at',
   },
   {
     title: 'Custom Web Apps and MVPs',
     description: 'Scalable product foundations for startups and teams that need fast iteration.',
-    price: 'Starting at CHF 20,000',
+    priceFrom: 20000,
+    pricePrefix: 'Starting at',
   },
   {
     title: 'SEO and Performance Optimization',
     description: 'Technical improvements that increase visibility, page speed, and conversion quality.',
-    price: 'Starting at CHF 2,500',
+    priceFrom: 2500,
+    pricePrefix: 'Starting at',
   },
   {
     title: 'Maintenance and Growth Support',
     description: 'Long-term updates, fixes, and feature development after launch.',
-    price: 'From CHF 300/month',
+    priceFrom: 300,
+    pricePrefix: 'From',
+    period: 'month' as const,
   },
 ];
 
 const pricingItems = [
-  { label: 'Websites', from: 'CHF 3,000', typical: 'CHF 6,000-15,000' },
-  { label: 'Ecommerce', from: 'CHF 5,000', typical: 'CHF 10,000-30,000' },
-  { label: 'Custom Web Apps / MVPs', from: 'CHF 20,000', typical: 'CHF 30,000-90,000' },
-  { label: 'SEO and Performance', from: 'CHF 2,500', typical: 'CHF 4,000-12,000' },
-  { label: 'Maintenance', from: 'CHF 300/month', typical: 'CHF 800-2,500/month' },
+  { label: 'Websites', fromChf: 3000, typicalFromChf: 6000, typicalToChf: 15000 },
+  { label: 'Ecommerce', fromChf: 5000, typicalFromChf: 10000, typicalToChf: 30000 },
+  { label: 'Custom Web Apps / MVPs', fromChf: 20000, typicalFromChf: 30000, typicalToChf: 90000 },
+  { label: 'SEO and Performance', fromChf: 2500, typicalFromChf: 4000, typicalToChf: 12000 },
+  { label: 'Maintenance', fromChf: 300, typicalFromChf: 800, typicalToChf: 2500, period: 'month' as const },
 ];
 
 const caseStudies = [
@@ -250,7 +257,9 @@ export default function LandingConcept(): JSX.Element {
                 <article class="lp-card">
                   <h3 class="text-lg font-semibold">{item.title}</h3>
                   <p class="mt-2 text-sm text-muted leading-relaxed">{item.description}</p>
-                  <p class="mt-4 text-sm font-semibold">{item.price}</p>
+                  <p class="mt-4 text-sm font-semibold">
+                    <LocalizedPrice fromChf={item.priceFrom} prefix={item.pricePrefix} period={item.period} />
+                  </p>
                 </article>
               )}
             </For>
@@ -265,7 +274,9 @@ export default function LandingConcept(): JSX.Element {
             <p class="mt-2 text-sm text-muted leading-relaxed">
               A focused kickoff to define goals, scope, architecture, and milestones before full execution.
             </p>
-            <p class="mt-3 text-sm font-semibold">From CHF 1,500</p>
+            <p class="mt-3 text-sm font-semibold">
+              <LocalizedPrice fromChf={1500} prefix="From" />
+            </p>
             <div class="mt-4">
               <BookCallButton text="Email us" primary placement="discovery_sprint" />
             </div>
@@ -286,8 +297,16 @@ export default function LandingConcept(): JSX.Element {
               {(item) => (
                 <article class="lp-card">
                   <h3 class="text-base font-semibold">{item.label}</h3>
-                  <p class="mt-3 text-sm">From: <span class="font-semibold">{item.from}</span></p>
-                  <p class="mt-1 text-sm text-muted">Most projects: {item.typical}</p>
+                  <p class="mt-3 text-sm">
+                    From:{' '}
+                    <span class="font-semibold">
+                      <LocalizedPrice fromChf={item.fromChf} period={item.period} />
+                    </span>
+                  </p>
+                  <p class="mt-1 text-sm text-muted">
+                    Most projects:{' '}
+                    <LocalizedPrice fromChf={item.typicalFromChf} toChf={item.typicalToChf} period={item.period} />
+                  </p>
                 </article>
               )}
             </For>
