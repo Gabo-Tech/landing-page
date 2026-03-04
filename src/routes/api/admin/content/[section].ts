@@ -27,22 +27,31 @@ function ensureAuthenticated(request: Request) {
 export async function GET({ request }: { request: Request }) {
   const authError = ensureAuthenticated(request);
   if (authError) return authError;
-
-  const section = getSectionFromRequest(request);
-  if (section === 'all') {
-    const result: Record<string, unknown> = {};
-    for (const key of listContentSections()) {
-      result[key] = await readContentSection(key);
+  try {
+    const section = getSectionFromRequest(request);
+    if (section === 'all') {
+      const result: Record<string, unknown> = {};
+      for (const key of listContentSections()) {
+        result[key] = await readContentSection(key);
+      }
+      return jsonResponse({ data: result });
     }
-    return jsonResponse({ data: result });
-  }
 
-  if (!isContentSection(section)) {
-    return jsonResponse({ error: 'Unknown content section' }, 404);
-  }
+    if (!isContentSection(section)) {
+      return jsonResponse({ error: 'Unknown content section' }, 404);
+    }
 
-  const data = await readContentSection(section);
-  return jsonResponse({ data });
+    const data = await readContentSection(section);
+    return jsonResponse({ data });
+  } catch (error) {
+    return jsonResponse(
+      {
+        error: 'Unable to load content',
+        detail: error instanceof Error ? error.message : 'Unknown error',
+      },
+      500,
+    );
+  }
 }
 
 export async function PUT({ request }: { request: Request }) {
@@ -65,10 +74,18 @@ export async function PUT({ request }: { request: Request }) {
     await writeContentSection(section, data);
     return jsonResponse({ ok: true });
   } catch (error) {
+    const err = error as NodeJS.ErrnoException;
+    const isReadOnlyFs = err.code === 'EROFS';
     return jsonResponse(
       {
-        error: 'Unable to save content',
-        detail: error instanceof Error ? error.message : 'Unknown error',
+        error: isReadOnlyFs
+          ? 'Unable to save content in this deployment environment'
+          : 'Unable to save content',
+        detail: isReadOnlyFs
+          ? 'The deployment filesystem is read-only. Use external storage (database/object storage) for persistent admin edits.'
+          : error instanceof Error
+            ? error.message
+            : 'Unknown error',
       },
       500,
     );
