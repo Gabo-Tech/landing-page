@@ -1,7 +1,5 @@
 import { JSX } from 'solid-js';
-import CalBookingButton from '../CalBookingButton/CalBookingButton';
-
-const calBookingUrl = 'https://cal.com/gabo/book-a-call';
+import { trackEvent } from '~/lib/analytics';
 
 export default function ContactIcon(props: {
   href: string;
@@ -18,42 +16,34 @@ export default function ContactIcon(props: {
     | (string & {})
     | null
     | undefined;
-}) {
-  const isCalBookingLink = props.href === calBookingUrl;
-
+}): JSX.Element {
   const icon = (
     <svg
-      fill="#fff"
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       viewBox={props.icon.viewBox}
       stroke-width={props.icon.strokeWidth}
       stroke="currentColor"
-      class="mx-auto mb-6 h-8 w-8 text-primary dark:text-primary-400"
+      class="mx-auto mb-4 h-8 w-8 text-fg"
     >
       <path d={props.icon.path} />
     </svg>
   );
 
   return (
-    <div class="mx-auto mb-12 text-center lg:mb-0 transform transition duration-500 hover:scale-125">
-      {isCalBookingLink ? (
-        <div>
-          {icon}
-          <CalBookingButton
-            href={props.href}
-            text={
-              typeof props.text === 'string' && props.text.length > 0
-                ? props.text
-                : 'BOOK A CALL NOW!'
-            }
-          />
-        </div>
-      ) : (
-        <a href={props.href} class="text-white hover:underline">
-          {icon}
-          <h6 class="font-medium">{props.text}</h6>
-        </a>
-      )}
+    <div class="mx-auto text-center transition duration-300 ease-smooth hover:-translate-y-0.5">
+      <a
+        href={props.href}
+        class="text-fg hover:underline"
+        onClick={() =>
+          trackEvent('contact_method_click', {
+            href: props.href,
+          })
+        }
+      >
+        {icon}
+        <h6 class="text-sm font-medium">{props.text}</h6>
+      </a>
     </div>
   );
 }

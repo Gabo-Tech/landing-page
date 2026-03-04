@@ -1,20 +1,20 @@
 {
   "sections": [
     {
-      "title": "About Us",
-      "body": "GABO LLC is a software development company that specializes in building modern, scalable web applications. Our team consists of passionate developers, designers, and product managers dedicated to delivering high-quality software solutions that meet the needs of our clients."
+      "title": "About",
+      "body": "GABO means Great Apps, Better Opportunities. GABO Solutions is a boutique development agency focused on conversion, performance, and maintainable software. We build websites and web applications that help businesses grow with confidence."
     },
     {
       "title": "Our Mission",
-      "body": "Our mission is to empower businesses through technology. We strive to create products that enhance productivity, improve customer experience, and drive growth."
+      "body": "Our mission is simple: ship digital products that create measurable business outcomes. Every project balances design clarity, technical quality, and long-term scalability."
     },
     {
-      "title": "Our Team",
-      "body": "We believe in the power of a diverse team to bring innovative ideas to the table. Our experts come from a variety of backgrounds, bringing a unique perspective to every project we undertake."
+      "title": "How We Work",
+      "body": "Each engagement is collaborative and milestone-based. You get direct communication, transparent scope, and senior-level execution from discovery through post-launch support."
     },
     {
       "title": "Get in Touch",
-      "body": "Interested in learning more about our services or starting a project with us?",
+      "body": "Have a project in mind? Let's talk through goals, constraints, and the best next step.",
       "email": "sendmessage@gabo.email"
     }
   ]

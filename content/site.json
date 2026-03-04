@@ -3,23 +3,27 @@
   "siteUrl": "https://gabo.solutions",
   "navLinks": [
     { "label": "Home", "href": "/" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Work", "href": "/work" },
     { "label": "Contact", "href": "/contact" }
   ],
   "footer": {
     "legalTitle": "LEGAL",
     "companyTitle": "COMPANY",
-    "helpTitle": "GET HELP",
+    "helpTitle": "CONTACT",
     "legalLinks": [
       { "label": "Privacy Policy", "href": "/privacy" },
       { "label": "Terms of Service", "href": "/terms" }
     ],
     "companyLinks": [
       { "label": "Home", "href": "/" },
-      { "label": "About Us", "href": "/about" },
-      { "label": "Contact Us", "href": "/contact" }
+      { "label": "Services", "href": "/services" },
+      { "label": "Work", "href": "/work" },
+      { "label": "About", "href": "/about" },
+      { "label": "Contact", "href": "/contact" }
     ],
     "helpLinks": [
-      { "label": "Support", "href": "/contact" }
+      { "label": "Email Us", "href": "mailto:sendmessage@gabo.email" }
     ]
   }
 }

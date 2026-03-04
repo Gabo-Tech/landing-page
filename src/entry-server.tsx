@@ -3,6 +3,7 @@ import { createHandler, StartServer } from '@solidjs/start/server';
 import { getRequestEvent } from 'solid-js/web';
 
 const siteUrl = 'https://gabo.solutions';
+const themeInitScript = `(function(){try{var k='theme-preference';var s=localStorage.getItem(k);var d=window.matchMedia('(prefers-color-scheme: dark)').matches;var l=window.matchMedia('(prefers-color-scheme: light)').matches;var t='dark';if(s==='dark'||s==='light'){t=s;}else if(d){t='dark';}else if(l){t='light';}document.documentElement.classList.remove('dark','light');document.documentElement.classList.add(t);document.documentElement.style.colorScheme=t;}catch(_){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}})();`;
 
 type SeoConfig = {
   title: string;
@@ -43,6 +44,46 @@ const seoByPath: Record<string, SeoConfig> = {
     description:
       'Contact GABO Solutions for software development services. Reach out by email, social media, or book a call.',
     canonicalPath: '/contact',
+    robots: 'index, follow',
+    ogType: 'website',
+  },
+  '/services': {
+    title: 'Software Development Services | GABO Solutions',
+    description:
+      'Software development services for web development, ecommerce builds, and technical SEO/performance optimization with clear milestones.',
+    canonicalPath: '/services',
+    robots: 'index, follow',
+    ogType: 'website',
+  },
+  '/work': {
+    title: 'Selected Work | GABO Solutions',
+    description:
+      'Review selected projects and outcomes delivered by GABO Solutions across websites, product builds, and optimization work.',
+    canonicalPath: '/work',
+    robots: 'index, follow',
+    ogType: 'website',
+  },
+  '/web-development': {
+    title: 'Web Development Agency Services | GABO Solutions',
+    description:
+      'Web development agency services for conversion-focused websites and scalable web applications built with modern JavaScript/TypeScript stacks.',
+    canonicalPath: '/web-development',
+    robots: 'index, follow',
+    ogType: 'website',
+  },
+  '/ecommerce-development': {
+    title: 'Ecommerce Website Development Services | GABO Solutions',
+    description:
+      'Ecommerce website development services focused on product discovery, checkout conversion, performance, and long-term growth.',
+    canonicalPath: '/ecommerce-development',
+    robots: 'index, follow',
+    ogType: 'website',
+  },
+  '/performance-seo': {
+    title: 'Technical SEO and Performance Services | GABO Solutions',
+    description:
+      'Technical SEO and website performance optimization services to improve discoverability, Core Web Vitals, and conversion quality.',
+    canonicalPath: '/performance-seo',
     robots: 'index, follow',
     ogType: 'website',
   },
@@ -107,6 +148,47 @@ export default createHandler(() => (
           'https://www.instagram.com/gabo.solutions/',
         ],
       });
+      const serviceStructuredData = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: [
+          { '@type': 'Service', name: 'Conversion-Focused Websites' },
+          { '@type': 'Service', name: 'Ecommerce Development' },
+          { '@type': 'Service', name: 'Custom Web Apps and MVPs' },
+          { '@type': 'Service', name: 'SEO and Performance Optimization' },
+          { '@type': 'Service', name: 'Maintenance and Growth Support' },
+        ],
+      });
+      const faqStructuredData = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How much does a project usually cost?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Most websites are CHF 6,000-15,000, ecommerce projects are CHF 10,000-30,000, and custom apps usually begin at CHF 30,000 depending on scope.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How long does a typical project take?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Most websites are completed in 3-8 weeks. More complex ecommerce and app builds usually take 8-16+ weeks.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Will I own the code and assets?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. You fully own agreed deliverables after final payment.',
+            },
+          },
+        ],
+      });
 
       return (
         <html lang="en">
@@ -130,7 +212,14 @@ export default createHandler(() => (
             <meta name="twitter:description" content={seo.description} />
             <meta name="twitter:image" content={`${siteUrl}/images/social-share.jpg`} />
 
+            <script innerHTML={themeInitScript} />
             <script type="application/ld+json" innerHTML={structuredData} />
+            {pathname === '/' && (
+              <>
+                <script type="application/ld+json" innerHTML={serviceStructuredData} />
+                <script type="application/ld+json" innerHTML={faqStructuredData} />
+              </>
+            )}
             {assets}
           </head>
           <body>
