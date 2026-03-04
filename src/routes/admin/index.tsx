@@ -71,6 +71,21 @@ function addArrayItemAtPath(source: JsonValue, path: JsonPath, template?: JsonVa
   return next;
 }
 
+function moveArrayItemAtPath(source: JsonValue, path: JsonPath, fromIndex: number, toIndex: number): JsonValue {
+  const next = structuredClone(source) as JsonValue;
+  let cursor: any = next;
+  for (const segment of path) {
+    cursor = cursor[segment];
+  }
+  if (Array.isArray(cursor)) {
+    if (fromIndex < 0 || fromIndex >= cursor.length) return next;
+    if (toIndex < 0 || toIndex >= cursor.length) return next;
+    const [item] = cursor.splice(fromIndex, 1);
+    cursor.splice(toIndex, 0, item);
+  }
+  return next;
+}
+
 export default function AdminDashboardPage() {
   const [selectedSection, setSelectedSection] = createSignal<SectionKey>('home');
   const [sectionData, setSectionData] = createSignal<JsonValue | null>(null);
@@ -175,6 +190,12 @@ export default function AdminDashboardPage() {
     const current = sectionData();
     if (current == null) return;
     applyUpdate(addArrayItemAtPath(current, path, template));
+  };
+
+  const moveInArray = (path: JsonPath, fromIndex: number, toIndex: number) => {
+    const current = sectionData();
+    if (current == null) return;
+    applyUpdate(moveArrayItemAtPath(current, path, fromIndex, toIndex));
   };
 
   const uploadSvg = async () => {
@@ -313,6 +334,22 @@ export default function AdminDashboardPage() {
                     <p class="text-xs text-gray-300">
                       Item {index() + 1}
                     </p>
+                    <button
+                      type="button"
+                      onClick={() => moveInArray(path, index(), index() - 1)}
+                      disabled={index() === 0}
+                      class="rounded bg-stone-700 px-2 py-1 text-xs hover:bg-stone-600 disabled:opacity-40"
+                    >
+                      Up
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => moveInArray(path, index(), index() + 1)}
+                      disabled={index() === value.length - 1}
+                      class="rounded bg-stone-700 px-2 py-1 text-xs hover:bg-stone-600 disabled:opacity-40"
+                    >
+                      Down
+                    </button>
                     <button
                       type="button"
                       onClick={() => removeFromArray(path, index())}
