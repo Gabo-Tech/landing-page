@@ -28,10 +28,12 @@ function AppLayout() {
       <ScrollbarVisibility />
       <ScrollRevealManager />
       {!isAdminRoute() && <Nav />}
-      <Suspense fallback={<div>Loading...</div>}>
-        <AppRoutes />
-      </Suspense>
-      {!isAdminRoute() && <Footer />}
+      <div class={`app-scroll-root ${isAdminRoute() ? 'app-scroll-root--admin' : ''}`}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <AppRoutes />
+        </Suspense>
+        {!isAdminRoute() && <Footer />}
+      </div>
     </>
   );
 }

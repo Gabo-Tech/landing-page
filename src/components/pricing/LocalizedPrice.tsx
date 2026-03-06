@@ -141,12 +141,12 @@ export default function LocalizedPrice(props: LocalizedPriceProps): JSX.Element 
     const localWithPeriod = appendPeriod(localRange, props.period);
     const localText = props.prefix ? `${props.prefix} ${localWithPeriod}` : localWithPeriod;
 
-    if (props.showChfReference === false) {
+    if (props.showChfReference !== true) {
       setDisplay(localText);
       return;
     }
 
-    setDisplay(`${localText} (CHF ${appendPeriod(formatRange(props.fromChf, props.toChf, 'en-CH', 'CHF'), props.period)})`);
+    setDisplay(`${localText} (${appendPeriod(formatRange(props.fromChf, props.toChf, 'en-CH', 'CHF'), props.period)})`);
   });
 
   return <span class={props.class}>{display() || buildChfText()}</span>;

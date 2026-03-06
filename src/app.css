@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --nav-height: 64px;
   --bg: 0 0% 5%;
   --fg: 0 0% 96%;
   --muted: 0 0% 66%;
@@ -46,67 +47,104 @@ body {
   background: hsl(var(--bg));
   color: hsl(var(--fg));
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden;
 }
 
-/* Translucent scrollbar: visible while scrolling or hover */
-html {
+/* Custom scrollbar: visible only while scrolling */
+.app-scroll-root {
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+  scrollbar-gutter: auto;
+}
+
+.app-scroll-root.is-scrolling {
   scrollbar-width: thin;
-  scrollbar-color: hsl(var(--fg) / 0) transparent;
 }
 
-html.is-scrolling {
-  scrollbar-color: hsl(var(--fg) / 0.34) transparent;
+.dark .app-scroll-root.is-scrolling {
+  scrollbar-color: hsl(0 0% 96%) transparent;
 }
 
-html:hover {
-  scrollbar-color: hsl(var(--fg) / 0.28) transparent;
+.light .app-scroll-root.is-scrolling {
+  scrollbar-color: hsl(0 0% 12%) transparent;
 }
 
-html::-webkit-scrollbar {
-  width: 11px;
-  height: 11px;
+.app-scroll-root::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
-html::-webkit-scrollbar-track {
+.app-scroll-root.is-scrolling::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.app-scroll-root::-webkit-scrollbar-track {
   background: transparent;
 }
 
-html::-webkit-scrollbar-thumb {
-  background: hsl(var(--fg) / 0);
+.app-scroll-root::-webkit-scrollbar-thumb {
+  background-color: transparent;
   border-radius: 999px;
   border: 2px solid transparent;
   background-clip: padding-box;
-  transition: background-color 260ms ease;
 }
 
-html.is-scrolling::-webkit-scrollbar-thumb {
-  background: hsl(var(--fg) / 0.34);
+.dark .app-scroll-root.is-scrolling::-webkit-scrollbar-thumb {
+  background-color: hsl(0 0% 96% / 0.9);
+  box-shadow: 0 0 0 1px hsl(0 0% 96% / 0.08);
 }
 
-html:hover::-webkit-scrollbar-thumb {
-  background: hsl(var(--fg) / 0.28);
+.light .app-scroll-root.is-scrolling::-webkit-scrollbar-thumb {
+  background-color: hsl(0 0% 12% / 0.9);
+  box-shadow: 0 0 0 1px hsl(0 0% 12% / 0.08);
+}
+
+.app-scroll-root.is-scrolling::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--fg));
+}
+
+.app-scroll-root.is-scrolling::-webkit-scrollbar-thumb:active {
+  background-color: hsl(var(--fg));
+}
+
+.app-scroll-root::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .app-scroll-root {
+    scrollbar-width: none;
+  }
+  .app-scroll-root.is-scrolling {
+    scrollbar-width: thin;
+  }
 }
 
 #app {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  display: block;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   overflow-x: hidden;
-  padding-top: 64px;
+  padding-top: 0;
 }
 
 main {
-  flex: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.suspense-container {
-  flex: 1;
-  display: flex;
+.app-scroll-root {
+  height: calc(100vh - var(--nav-height));
+  margin-top: var(--nav-height);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.app-scroll-root--admin {
+  height: 100vh;
+  margin-top: 0;
 }
 
 * {
@@ -138,6 +176,29 @@ main {
   padding: 6rem 0;
 }
 
+.lp-section-priority {
+  background:
+    linear-gradient(180deg, hsl(var(--fg) / 0.035), hsl(var(--fg) / 0.01)),
+    transparent;
+}
+
+.lp-section-priority::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: hsl(var(--fg) / 0.12);
+  pointer-events: none;
+}
+
+.lp-section-pricing {
+  background:
+    radial-gradient(42rem 20rem at 50% -10%, hsl(var(--fg) / 0.05), transparent 70%),
+    transparent;
+}
+
 .lp-heading {
   margin: 0;
   font-size: clamp(1.5rem, 3vw, 2.25rem);
@@ -166,6 +227,7 @@ h3 {
   right: 0;
   bottom: 0;
   z-index: 70;
+  box-shadow: 0 -10px 28px -20px hsl(var(--fg) / 0.75);
 }
 
 .mobile-sticky-cta .lp-button-primary {
@@ -174,11 +236,84 @@ h3 {
 
 @media (max-width: 640px) {
   .lp-section {
-    padding: 4.4rem 0;
+    padding: 3.8rem 0;
   }
 
-  #app {
-    padding-bottom: 72px;
+  .lp-section-priority {
+    padding: 4.1rem 0;
+  }
+
+  .app-scroll-root {
+    padding-bottom: 108px;
+  }
+
+  .lp-subheading {
+    margin-top: 0.95rem;
+    font-size: 0.97rem;
+    line-height: 1.65;
+  }
+
+  .lp-card {
+    padding: 1.15rem;
+  }
+
+  .lp-mobile-cta-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  .lp-mobile-cta-group > .lp-button-primary,
+  .lp-mobile-cta-group > .lp-button-secondary {
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.95rem;
+  }
+
+  .lp-button-primary,
+  .lp-button-secondary {
+    min-height: 46px;
+  }
+
+  .lp-card,
+  .lp-button-primary,
+  .lp-button-secondary,
+  .lp-quick-price-card,
+  .lp-contact-chip {
+    transition-duration: 120ms;
+  }
+
+  .lp-card:hover,
+  .lp-quick-price-card:hover,
+  .lp-button-primary:hover,
+  .lp-button-secondary:hover,
+  .lp-contact-chip:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .cursor-dot,
+  .cursor-ring,
+  .lp-mouse-ambient {
+    display: none !important;
+  }
+
+  .lp-quick-price-card {
+    padding: 0.85rem 0.95rem;
+  }
+
+  .lp-pricing-card {
+    min-height: unset;
+  }
+
+  .lp-contact-strip {
+    gap: 0.5rem;
+  }
+
+  .lp-contact-chip {
+    width: 100%;
+    min-height: 42px;
   }
 }
 
@@ -210,7 +345,7 @@ h3 {
 }
 
 @media (min-width: 640px) {
-  #app {
+  .app-scroll-root {
     padding-bottom: 0;
   }
 }
@@ -240,14 +375,19 @@ h3 {
   color: hsl(var(--bg));
   font-size: 0.95rem;
   font-weight: 600;
-  padding: 0.72rem 1.05rem;
+  padding: 0.78rem 1.18rem;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), opacity 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 10px 24px -14px hsl(var(--fg) / 0.9);
+  transition:
+    transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .lp-button-primary:hover {
   transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 14px 30px -14px hsl(var(--fg) / 0.85);
 }
 
 .lp-button-secondary {
@@ -262,6 +402,90 @@ h3 {
   font-weight: 600;
   padding: 0.72rem 1.05rem;
   text-decoration: none;
+  transition:
+    border-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lp-button-secondary:hover {
+  border-color: hsl(var(--fg) / 0.42);
+  background: hsl(var(--fg) / 0.06);
+  transform: translateY(-1px);
+}
+
+.lp-button-primary:focus-visible,
+.lp-button-secondary:focus-visible,
+.lp-contact-chip:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+.lp-quick-price-card {
+  position: relative;
+  transition:
+    border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lp-quick-price-card::before {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  top: 0;
+  height: 1px;
+  background: hsl(var(--fg) / 0.22);
+}
+
+.lp-quick-price-card:hover {
+  transform: translateY(-1px);
+  border-color: hsl(var(--fg) / 0.36);
+  box-shadow: 0 8px 22px -16px hsl(var(--fg) / 0.7);
+}
+
+.lp-pricing-card {
+  position: relative;
+  min-height: 180px;
+}
+
+.lp-pricing-card::before {
+  content: "";
+  position: absolute;
+  left: 1.65rem;
+  right: 1.65rem;
+  top: 0;
+  height: 1px;
+  background: hsl(var(--fg) / 0.2);
+}
+
+.lp-contact-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.lp-contact-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  color: hsl(var(--fg));
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.45rem 0.82rem;
+  text-decoration: none;
+  transition:
+    border-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lp-contact-chip:hover {
+  border-color: hsl(var(--fg) / 0.4);
+  background: hsl(var(--fg) / 0.06);
 }
 
 .lp-noise-bg::before {

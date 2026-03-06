@@ -161,46 +161,63 @@ export default function LandingConcept(): JSX.Element {
       <MouseAmbient />
       <CustomCursor />
 
-      <section class="lp-section lp-noise-bg border-b border-border">
+      <section class="lp-section lp-section-priority lp-noise-bg border-b border-border">
         <div class="lp-container">
-          <p class="text-sm uppercase tracking-[0.22em] text-muted">Boutique Development Agency</p>
+          <p class="text-sm uppercase tracking-[0.22em] text-muted">Boutique Growth and Development Partner</p>
           <h1 class="mt-3 text-[clamp(2rem,5vw,4.8rem)] font-semibold leading-[1.08] tracking-tight max-w-5xl">
-            Websites and web apps that turn visitors into customers.
+            We build websites and web apps that turn traffic into qualified leads.
           </h1>
           <p class="lp-subheading">
-            Conversion-focused digital products for businesses, startups, and online stores.
-            Built with clear scope, fast communication, and long-term maintainability.
+            Strategy, UX, and development aligned to one goal: measurable growth. You get clear scope, direct
+            communication, and delivery built for long-term performance.
           </p>
           <div class="mt-6 flex flex-wrap gap-2 text-xs uppercase tracking-[0.16em] text-muted">
-            <span class="rounded-full border border-border px-3 py-1">Fast delivery</span>
-            <span class="rounded-full border border-border px-3 py-1">Performance-first</span>
-            <span class="rounded-full border border-border px-3 py-1">SEO-ready builds</span>
+            <span class="rounded-full border border-border px-3 py-1">Conversion-first delivery</span>
+            <span class="rounded-full border border-border px-3 py-1">Performance and SEO focused</span>
+            <span class="rounded-full border border-border px-3 py-1">Senior-level execution</span>
           </div>
-          <div class="mt-7 flex flex-wrap items-center gap-3">
-            <BookCallButton text="Email us" primary placement="hero" />
+          <div class="mt-7 flex flex-wrap items-center gap-3 lp-mobile-cta-group">
+            <A href="/contact" class="lp-button-primary">
+              Get pricing and proposal ->
+            </A>
             <a href="#services" class="lp-button-secondary">
               View services
             </a>
           </div>
-          <p class="mt-3 text-sm text-muted">Expect a response within 48 hours • No obligation • Worldwide remote collaboration</p>
+          <p class="mt-3 text-sm text-muted">
+            Expect a response within 48 hours. No obligation. Remote collaboration worldwide.
+          </p>
           <div class="mt-5 grid gap-3 sm:grid-cols-3">
-            <div class="rounded-md border border-border bg-card p-3">
-              <p class="text-xs uppercase tracking-[0.12em] text-muted">Delivery</p>
-              <p class="mt-1 text-sm font-semibold">Milestone-based delivery</p>
+            <div class="lp-quick-price-card rounded-md border border-border bg-card p-3">
+              <p class="text-xs uppercase tracking-[0.12em] text-muted">Websites</p>
+              <p class="mt-1 text-sm font-semibold">
+                From <LocalizedPrice fromChf={3000} />
+              </p>
             </div>
-            <div class="rounded-md border border-border bg-card p-3">
-              <p class="text-xs uppercase tracking-[0.12em] text-muted">Performance</p>
-              <p class="mt-1 text-sm font-semibold">SEO-ready and speed-focused</p>
+            <div class="lp-quick-price-card rounded-md border border-border bg-card p-3">
+              <p class="text-xs uppercase tracking-[0.12em] text-muted">Ecommerce</p>
+              <p class="mt-1 text-sm font-semibold">
+                From <LocalizedPrice fromChf={5000} />
+              </p>
             </div>
-            <div class="rounded-md border border-border bg-card p-3">
-              <p class="text-xs uppercase tracking-[0.12em] text-muted">Communication</p>
-              <p class="mt-1 text-sm font-semibold">Direct updates, weekly checkpoints</p>
+            <div class="lp-quick-price-card rounded-md border border-border bg-card p-3">
+              <p class="text-xs uppercase tracking-[0.12em] text-muted">Custom apps</p>
+              <p class="mt-1 text-sm font-semibold">
+                From <LocalizedPrice fromChf={20000} />
+              </p>
             </div>
           </div>
+          <p class="mt-3 text-sm text-muted">
+            Need exact numbers? Email{' '}
+            <a class="underline hover:no-underline" href="mailto:sendmessage@gabo.email">
+              sendmessage@gabo.email
+            </a>{' '}
+            or use the contact page to receive a tailored estimate.
+          </p>
         </div>
       </section>
 
-      <section class="lp-section border-b border-border">
+      <section class="lp-section lp-section-pricing border-b border-border">
         <div class="lp-container">
           <h2 class="lp-heading">Trusted feedback from real professional collaborations</h2>
           <p class="lp-subheading">Trusted by founders and technical leaders for speed, quality, and execution.</p>
@@ -246,7 +263,7 @@ export default function LandingConcept(): JSX.Element {
       <section class="lp-section border-b border-border" id="services">
         <div class="lp-container">
           <div class="2xl:grid 2xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] 2xl:gap-12 2xl:items-end">
-            <h2 class="lp-heading">Services built around business outcomes, not just code.</h2>
+            <h2 class="lp-heading">Services that combine growth strategy, UX, and engineering.</h2>
             <p class="lp-subheading 2xl:mt-0 2xl:max-w-none">
               Each engagement is scoped around measurable impact, not generic deliverables.
             </p>
@@ -295,7 +312,7 @@ export default function LandingConcept(): JSX.Element {
           <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
             <For each={pricingItems}>
               {(item) => (
-                <article class="lp-card">
+                <article class="lp-card lp-pricing-card">
                   <h3 class="text-base font-semibold">{item.label}</h3>
                   <p class="mt-3 text-sm">
                     From:{' '}
@@ -365,7 +382,9 @@ export default function LandingConcept(): JSX.Element {
       <section class="lp-section border-b border-border">
         <div class="lp-container">
           <h2 class="lp-heading">Why clients choose to work with us.</h2>
-          <p class="lp-subheading">Senior-level execution with direct communication and long-term thinking.</p>
+          <p class="lp-subheading">
+            You get one team for strategy and execution, with clear accountability from planning to delivery.
+          </p>
           <div class="mt-8 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             <For each={differentiators}>
               {(item) => <div class="lp-card text-sm font-medium">{item}</div>}
@@ -450,23 +469,33 @@ export default function LandingConcept(): JSX.Element {
         </div>
       </section>
 
-      <section class="lp-section border-b border-border">
+      <section class="lp-section lp-section-priority border-b border-border">
         <div class="lp-container">
-          <h2 class="lp-heading">Ready to build something that actually performs?</h2>
-          <p class="lp-subheading">Email us to align goals, scope, and realistic next milestones.</p>
-          <div class="mt-7 flex flex-wrap items-center gap-3">
+          <h2 class="lp-heading">Ready for a clear scope, clear price, and clear next step?</h2>
+          <p class="lp-subheading">Share your goals and receive a practical proposal with timeline and pricing guidance.</p>
+          <div class="mt-7 flex flex-wrap items-center gap-3 lp-mobile-cta-group">
             <BookCallButton text="Email us" primary placement="final_cta" />
             <A class="lp-button-secondary" href="/contact">
-              Send project details
+              Open contact options
             </A>
           </div>
-          <p class="mt-3 text-sm text-muted">Expect a response within 48 hours • Clear scope • Proposal after discovery</p>
+          <p class="mt-3 text-sm text-muted">
+            Contact: sendmessage@gabo.email • Response within 48 hours • Proposal after discovery
+          </p>
+          <div class="mt-4 lp-contact-strip">
+            <a href="mailto:sendmessage@gabo.email" class="lp-contact-chip">sendmessage@gabo.email</a>
+            <A href="/contact" class="lp-contact-chip">Open contact page</A>
+          </div>
         </div>
       </section>
 
       <div class="mobile-sticky-cta border-t border-border bg-bg/92 backdrop-blur sm:hidden">
         <div class="lp-container py-3">
-          <BookCallButton text="Email us" primary placement="mobile_sticky" />
+          <BookCallButton text="Get pricing by email" primary placement="mobile_sticky" />
+          <p class="mt-2 text-center text-xs text-muted">Response within 48 hours</p>
+          <p class="mt-1 text-center text-[11px] uppercase tracking-[0.12em] text-muted">
+            Trusted by founders and technical leaders
+          </p>
         </div>
       </div>
     </main>
