@@ -365,6 +365,24 @@ h3 {
   box-shadow: 0 12px 30px -20px hsl(var(--fg) / 0.4);
 }
 
+.lp-card.lp-card-flush {
+  padding: 0;
+  overflow: hidden;
+}
+
+.lp-card.lp-card-flush:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.lp-card-flush > article {
+  transition: background-color 180ms ease;
+}
+
+.lp-card-flush > article:hover {
+  background: hsl(var(--fg) / 0.035);
+}
+
 .lp-button-primary {
   display: inline-flex;
   align-items: center;
