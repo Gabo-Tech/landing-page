@@ -5,6 +5,7 @@ import CustomCursor from './CustomCursor';
 import MouseAmbient from './MouseAmbient';
 import { trackEvent } from '~/lib/analytics';
 import LocalizedPrice from '~/components/pricing/LocalizedPrice';
+import OwnProductsSection from '~/components/products/OwnProductsSection';
 
 const serviceItems = [
   {
@@ -360,6 +361,8 @@ export default function LandingConcept(): JSX.Element {
           </div>
         </div>
       </section>
+
+      <OwnProductsSection variant="compact" />
 
       <section class="lp-section border-b border-border">
         <div class="lp-container">

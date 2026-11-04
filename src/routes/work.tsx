@@ -1,5 +1,6 @@
 import type { JSX } from 'solid-js';
 import { A } from '@solidjs/router';
+import OwnProductsSection from '~/components/products/OwnProductsSection';
 
 const workItems = [
   {
@@ -42,6 +43,7 @@ export default function Work(): JSX.Element {
             </article>
           ))}
         </section>
+        <OwnProductsSection variant="full" />
         <section class="lp-card">
           <h2 class="text-lg font-semibold">Want similar outcomes?</h2>
           <p class="mt-2 text-sm text-muted">Email us and get a practical scope with milestones and priorities.</p>
